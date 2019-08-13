@@ -34,7 +34,7 @@ int RoboFIFA_UDP::initCommunication(void (*packetHandler)(AsyncUDPPacket)){
 
 void RoboFIFA_UDP::requestCommunication(int id){
     char msg[16];
-    sprintf(msg, "{'id':%i}", id);
+    sprintf(msg, "{\"id\":%i}", id);
     Serial.println(msg);
     udp.broadcastTo(msg, port);
     state = State::receiving;
